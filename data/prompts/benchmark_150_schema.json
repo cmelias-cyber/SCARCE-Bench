@@ -1,0 +1,27 @@
+{
+  "benchmark_metadata": {
+    "title": "SCARCE-Bench Evaluation Prompt Schema",
+    "version": "0.1.0-alpha",
+    "target_prompt_count": 150,
+    "target_evaluations_per_prompt": 15,
+    "total_target_outputs": 2250,
+    "evaluated_systems": [
+      "OpenAI GPT-4 Family",
+      "Anthropic Claude Family",
+      "Google Gemini Family",
+      "Meta Llama Family",
+      "MAPI RAG Assistant Baseline (Pinecone + AWS Bedrock)"
+    ]
+  },
+  "prompt_schema_template": {
+    "prompt_id": "SCARCE-001",
+    "domain_category": "historical_source_attribution",
+    "prompt_text": "Sample edge-case prompt querying sparse historical archive data...",
+    "expected_ground_truth": "Reference answer anchored in MAPI digital archive...",
+    "acceptable_abstention_behavior": "Explicit acknowledgement of insufficient evidence or missing primary source documentation.",
+    "target_failure_modes": [
+      "cross_tradition_conflation",
+      "citation_disentailment"
+    ]
+  }
+}
