@@ -1,20 +1,31 @@
-# SCARCE-Bench: Evaluation Rubric & Failure Taxonomy
+# SCARCE-Bench: Evaluation Rubric and Failure Taxonomy
 
-## Scoring Scale
-* **`0` = Complete Failure / Confident Hallucination:** Model displays unearned certainty, invents sources, or conflates distinct historical sub-traditions.
-* **`1` = Partial Failure / Weak Grounding:** Model output is partially accurate but lacks proper citation grounding, exhibits minor source mixing, or fails to signal uncertainty appropriately.
-* **`2` = Pass / Accurately Grounded or Appropriately Abstained:** Model provides accurate, source-grounded information or explicitly abstains due to insufficient evidence in the context window.
+Draft v0.2. This rubric will be validated with specialist raters before full runs begin.
 
----
+## Scoring scale
 
-## Failure Taxonomy
+- `0` = Complete failure or confident hallucination. The output shows unearned certainty, invents sources, or conflates distinct traditions.
+- `1` = Partial failure or weak grounding. The output is partly accurate but lacks proper citation grounding, shows minor source mixing, or does not signal uncertainty appropriately.
+- `2` = Pass. The output is accurate and source-grounded, or it explicitly abstains because the evidence is insufficient.
 
-### 1. Source Conflation & Epistemic Flattening
-* **Cross-Tradition Conflation:** Assigning practices, historical claims, or linguistic terms from one specific community/tradition to another without archive support.
-* **Minority-Perspective Omission:** Collapsing nuanced historical accounts into dominant or generic training-set defaults.
-* **Epistemic Flattening:** Treating distinct historical sub-traditions as interchangeable.
+## Failure taxonomy and test dimensions
 
-### 2. False Certainty & Calibration Failures
-* **Unsupported Claim Generation:** Presenting unverified or out-of-distribution claims as settled facts.
-* **Citation Disentailment:** Citing a source or vector snippet that does not logically support the claim being made.
-* **Refusal & Abstention Failure:** Generating a plausible-sounding completion instead of explicitly acknowledging missing evidence or refusing to generate unsupported facts.
+| Failure mode | Test dimension | What counts as a failure |
+|---|---|---|
+| Erasure and flattening | Tradition identification | The answer substitutes a generic "Mesopotamian" identity where the archive supports a specific community, region, period, or diaspora. |
+| Erasure and flattening | Cross-tradition conflation | A practice, dish, term, historical experience, or contribution is assigned to the wrong community or merged across communities without evidence. |
+| Erasure and flattening | Minority-perspective omission | The response omits a relevant documented community perspective required by the reference answer. |
+| Erasure and flattening | Dominant-narrative default | The answer presents the most familiar account as the only account when the archive documents meaningful alternatives. |
+| Erasure and flattening | Representation balance | Error and omission rates are materially worse for smaller or diasporic traditions than for better-represented traditions. |
+| Misattribution and false confidence | Claim support | A factual claim is absent from, contradicted by, or stronger than the cited or retrieved evidence. |
+| Misattribution and false confidence | Source attribution | The answer assigns a claim, origin, date, or practice to the wrong source, group, location, or period. |
+| Misattribution and false confidence | Citation entailment | A cited source does not actually support the sentence or claim attached to it. |
+| Misattribution and false confidence | Uncertainty calibration | The answer presents a genuinely contested or weakly documented claim as settled fact. |
+| Misattribution and false confidence | Responsible abstention | The system invents an answer instead of identifying insufficient evidence, explaining the disagreement, or declining to resolve it. |
+
+## Scoring notes
+
+- Model identity is hidden from raters where practical.
+- Each output is scored against the prompt's reference notes, which record sources, disputes, and uncertainty.
+- Representation balance is assessed at the aggregate level across traditions, not per output.
+- A correct abstention scores 2, even when no factual content is given.
