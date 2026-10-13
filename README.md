@@ -1,30 +1,44 @@
 # SCARCE-Bench
 
-**SCARCE-Bench** (*Sparse-knowledge Certainty, Abstention, RAG, and Conflation Errors Benchmark*) is an open-source evaluation framework designed to audit how frontier language models and Retrieval-Augmented Generation (RAG) systems behave in evidence-sparse and high-ambiguity knowledge domains.
+**Sparse-knowledge Certainty, Abstention, RAG, and Conflation Errors Benchmark**
 
-Using the curated digital archive of the Mesopotamian Aroma Preservation Initiative (MAPI) as a controlled evaluation sandbox, SCARCE-Bench stress-tests model outputs for unearned confidence, source conflation, and epistemic failures.
+SCARCE-Bench is an open-source evaluation project that tests how frontier language models and retrieval-augmented (RAG) systems behave when evidence is sparse. Instead of abstaining, models often give fluent, confident answers that hide missing evidence, merge distinct sources, and overstate contested claims. This project measures that behavior.
 
----
+The project is run through the Mesopotamian Aroma Preservation Initiative (MAPI), a nonprofit founded by Charlie-Moshé Elias. MAPI's archive of rare, contested, and under-documented sources is the first testbed.
 
-## Key Features & Scope
-* **Target Failure Modes:** Source Conflation & Epistemic Flattening, False Certainty & Calibration Failures.
-* **Evaluated Systems:** 4 Frontier LLM Families (OpenAI GPT-4, Anthropic Claude, Google Gemini, Meta Llama flagship runtimes) + Pinecone/AWS Bedrock RAG Control Baseline.
-* **Sample Size:** 150 curated edge-case prompts × 15 evaluations/variations = **2,250 logged evaluation outputs**.
-* **Methodology:** Blinded dual-annotation paired with expert archivist double-coding to compute inter-rater reliability ($Krippendorff's \alpha$).
+**Status:** work in progress. The prompt schema and draft rubric are public. Pilot testing, expert validation, and full evaluation runs are planned.
 
----
+## Failure modes tested
 
-## Project Deliverables
-1. **GitHub Benchmark Repository:** Python evaluation harnesses, test suites, and scoring protocols.
-2. **Open Output Dataset:** 2,250 logged model completions hosted on Hugging Face.
-3. **Interactive Gradio Demo:** Web interface hosted on Hugging Face Spaces for interactive error exploration.
-4. **Empirical Evaluation Report:** Publication-grade report detailing model failure rates and boundary enforcement mechanisms.
+1. **Source conflation and flattening.** Distinct sources, eras, communities, and diasporic lineages collapse into a generic default. The benchmark tests tradition identification, cross-tradition conflation, minority-perspective omission, dominant-narrative defaults, and representation balance.
+2. **False certainty and calibration failures.** Under-documented or contested claims are stated as settled. The benchmark tests claim support, source attribution, citation entailment, uncertainty calibration, and responsible abstention.
 
----
+## Design
 
-## Repository Structure
-For detailed technical specifications, rubric taxonomies, and budget breakdowns, see the [`docs/`](./docs/) directory.
+- At least 150 prompts, balanced across both failure modes and across the traditions in the archive
+- Four current frontier model families plus a RAG assistant built on the MAPI archive, with model versions pinned and recorded at run time
+- Each prompt run three times per system, producing at least 2,250 scored outputs per domain
+- A private held-out test set, not published, to guard against training contamination
+- Blinded scoring by independent specialists and community knowledge holders, with double-coding on a defined subset and inter-rater reliability reported
+- Results reported for each tradition separately, so strong performance on well-documented groups cannot hide weak performance on smaller ones
+- A defense-in-depth stress test of the RAG system covering retrieval boundaries, prompt injection, and data leakage
 
-* [`docs/proposal-spec.md`](./docs/proposal-spec.md): Full project specification, budget allocation, and execution timeline.
-* [`docs/evaluation-rubric.md`](./docs/evaluation-rubric.md): Scoring rubric (0–2 scale) and failure taxonomy definitions.
-* [`docs/inter-rater-protocol.md`](./docs/inter-rater-protocol.md): Expert double-coding protocol and inter-rater reliability targets.
+## Planned phases
+
+- **Phase 1:** the MAPI archive as a controlled low-data testbed
+- **Phase 2:** the same method on a second sparse domain with an outside collaborator, to show the framework is reusable
+
+## Repository contents
+
+- `data/prompts/`: prompt schema (`benchmark_150_schema.json`) and pilot prompts
+- `docs/evaluation-rubric.md`: draft scoring rubric and failure taxonomy
+
+Planned additions: inter-rater protocol, security architecture notes, Python scoring harness, results dataset, and Gradio demo.
+
+## Planned outputs
+
+An open-source harness and rubric, a public dataset of scored outputs, an interactive demo, and a report on failure rates and abstention behavior.
+
+## License
+
+MIT
