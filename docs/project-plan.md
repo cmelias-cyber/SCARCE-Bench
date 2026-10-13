@@ -2,14 +2,14 @@
 
 ## Scope
 
-A 9-month project with two phases. Phase 1 uses the MAPI archive as a controlled low-data testbed. Phase 2 repeats the method on a second sparse domain with an outside collaborator.
+A 9-month project with two phases. Phase 1 uses the MAPI archive as a controlled low-data testbed. Phase 2 pilots the method on a second sparse domain with an outside collaborator.
 
 ## Design
 
-- At least 150 prompts, balanced across two failure modes and across traditions
+- At least 150 public prompts plus a private held-out set of about 150 more, balanced across two failure modes and across traditions
 - Four general-purpose frontier LLM families plus a MAPI RAG assistant, versions pinned at run time
-- Three runs per prompt per system (2,250 scored outputs per domain)
-- A private held-out set to guard against training contamination
+- Three runs per prompt per system (about 4,500 scored outputs in Phase 1)
+- The held-out set is not published and guards against training contamination
 - Blinded scoring, double-coding on a defined subset, inter-rater reliability reported (Krippendorff's alpha)
 - Results reported separately for each tradition
 - The same RAG pipeline is also deployed as MAPI's public assistant, so scripted benchmark behavior can be compared with behavior on real user questions
