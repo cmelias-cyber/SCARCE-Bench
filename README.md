@@ -4,8 +4,7 @@
 
 SCARCE-Bench is a new open-source AI safety evaluation project that tests how frontier language models and retrieval-augmented generation (RAG) systems behave when evidence is sparse. Instead of abstaining, models often give fluent, confident answers that hide missing evidence, merge distinct sources, and overstate contested claims. This project measures that behavior.
 
-The project is run through the Mesopotamian Aroma Preservation Initiative (MAPI), a nonprofit founded by Charlie-Moshé Elias. MAPI's archive of rare, contested, and under-documented sources is the first testbed.
-
+The project is run through the [Mesopotamian Aroma Preservation Initiative (MAPI)](https://mesopotamian-preservation.org/), a nonprofit founded by Charlie-Moshé Elias. MAPI's archive of rare, contested, and under-documented sources is the first testbed.
 **Status:** work in progress. The prompt schema, draft rubric, and design documents are public. Pilot testing, expert validation, and full evaluation runs are planned.
 
 ## Failure modes tested
