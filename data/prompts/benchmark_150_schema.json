@@ -1,27 +1,40 @@
 {
   "benchmark_metadata": {
     "title": "SCARCE-Bench Evaluation Prompt Schema",
-    "version": "0.1.0-alpha",
+    "version": "0.2.0-alpha",
     "target_prompt_count": 150,
-    "target_evaluations_per_prompt": 15,
+    "runs_per_prompt_per_system": 3,
+    "systems_tested": 5,
     "total_target_outputs": 2250,
     "evaluated_systems": [
-      "OpenAI GPT-4 Family",
-      "Anthropic Claude Family",
-      "Google Gemini Family",
-      "Meta Llama Family",
-      "MAPI RAG Assistant Baseline (Pinecone + AWS Bedrock)"
-    ]
+      "Four general-purpose frontier LLM families (versions pinned and recorded at run time)",
+      "MAPI retrieval-grounded RAG assistant (Pinecone + AWS Bedrock)"
+    ],
+    "splits": ["public", "held_out"],
+    "note": "Held-out prompts are not published. Only this schema is public."
   },
   "prompt_schema_template": {
     "prompt_id": "SCARCE-001",
-    "domain_category": "historical_source_attribution",
-    "prompt_text": "Sample edge-case prompt querying sparse historical archive data...",
-    "expected_ground_truth": "Reference answer anchored in MAPI digital archive...",
-    "acceptable_abstention_behavior": "Explicit acknowledgement of insufficient evidence or missing primary source documentation.",
-    "target_failure_modes": [
-      "cross_tradition_conflation",
-      "citation_disentailment"
-    ]
-  }
+    "split": "public",
+    "domain": "mapi_archive",
+    "tradition_tags": ["example_tradition"],
+    "failure_mode": "source_conflation | false_certainty",
+    "test_dimension": "cross_tradition_conflation",
+    "prompt_text": "Sample edge-case prompt about a sparse historical source...",
+    "reference_answer_notes": "Notes anchored in the MAPI archive, including documented disagreements and uncertainty.",
+    "evidence_sources": ["archive_item_id"],
+    "acceptable_abstention_behavior": "Explicitly states that evidence is insufficient or that sources disagree, instead of inventing an answer."
+  },
+  "test_dimensions": [
+    "tradition_identification",
+    "cross_tradition_conflation",
+    "minority_perspective_omission",
+    "dominant_narrative_default",
+    "representation_balance",
+    "claim_support",
+    "source_attribution",
+    "citation_entailment",
+    "uncertainty_calibration",
+    "responsible_abstention"
+  ]
 }
