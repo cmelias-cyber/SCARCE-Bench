@@ -2,8 +2,7 @@
 
 **Sparse-knowledge Certainty, Abstention, RAG, and Conflation Errors Benchmark**
 
-SCARCE-Bench is an open-source evaluation project that tests how frontier language models and retrieval-augmented (RAG) systems behave when evidence is sparse. Instead of abstaining, models often give fluent, confident answers that hide missing evidence, merge distinct sources, and overstate contested claims. This project measures that behavior.
-
+SCARCE-Bench is a new open-source AI safety evaluation project that tests how frontier language models and retrieval-augmented (RAG) systems behave when evidence is sparse. Instead of abstaining, models often give fluent, confident answers that hide missing evidence, merge distinct sources, and overstate contested claims. This project measures that behavior.
 The project is run through the Mesopotamian Aroma Preservation Initiative (MAPI), a nonprofit founded by Charlie-Moshé Elias. MAPI's archive of rare, contested, and under-documented sources is the first testbed.
 
 **Status:** work in progress. The prompt schema and draft rubric are public. Pilot testing, expert validation, and full evaluation runs are planned.
