@@ -1,17 +1,18 @@
 {
   "benchmark_metadata": {
     "title": "SCARCE-Bench Evaluation Prompt Schema",
-    "version": "0.2.0-alpha",
+    "version": "0.3.0-alpha",
     "target_prompt_count": 150,
+    "target_held_out_prompt_count": 150,
     "runs_per_prompt_per_system": 3,
     "systems_tested": 5,
-    "total_target_outputs": 2250,
+    "total_target_outputs": 4500,
     "evaluated_systems": [
       "Four general-purpose frontier LLM families (versions pinned and recorded at run time)",
       "MAPI retrieval-grounded RAG assistant (Pinecone + AWS Bedrock)"
     ],
     "splits": ["public", "held_out"],
-    "note": "Held-out prompts are not published. Only this schema is public."
+    "note": "target_prompt_count refers to the public set. Held-out prompts are not published. Only this schema is public."
   },
   "prompt_schema_template": {
     "prompt_id": "SCARCE-001",
