@@ -1,6 +1,6 @@
-# Related Work and Background Reading
+# Related Work
 
-Draft notes. These are reading notes, not claims. SCARCE-Bench does not depend on any forecast about future AI.
+SCARCE-Bench does not depend on any forecast about future AI. The sources below are included for the design choices they inform.
 
 ## Benchmarks on factual accuracy and abstention
 
