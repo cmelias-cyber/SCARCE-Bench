@@ -1,6 +1,6 @@
 # Related Work
 
-SCARCE-Bench does not depend on any forecast about future AI. The sources below are included for the design choices they inform.
+Note: SCARCE-Bench does not depend on any forecast about future AI. The sources below are included for the design choices they inform.
 
 ## Benchmarks on factual accuracy and abstention
 
